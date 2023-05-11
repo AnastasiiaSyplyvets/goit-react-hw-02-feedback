@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Counter from './Statistic'
-import {Section} from './Section';
 import {FeedbackOptions} from './FeedbackOptions';
-
+import css from './Statistic.module.css';
 
 
 
@@ -15,7 +14,7 @@ export class App extends Component {
     
 handleGoodAmount = (event) =>{
   this.setState((prevAmount)=>{
-      console.log("click")
+    
 return{
  good: prevAmount.good +1
 }
@@ -48,21 +47,14 @@ countTotalFeedback =()=>{
 countPositiveFeedbackPercentage = ()=>{
   let posTotal = Math.round((this.state.good * 100) / this.countTotalFeedback());
 
-if(posTotal <0) {
-  return 100;
-}
-
   return posTotal;
-
 }
-
-
 
     render(){
       
 
       const total =this.countTotalFeedback();
-      console.log(total)
+    
      
      return (
       
@@ -70,7 +62,7 @@ if(posTotal <0) {
      <FeedbackOptions  options= {{handleGood: this.handleGoodAmount, handleNeutral: this.handleNeutralAmount,  
     handleBad: this.handleBadAmount}}/>
 
-     {total === 0 ? (<p>No feedback given</p>) : (
+     {total === 0 ? (<p className={css.feedback}>No feedback given</p>) : (
      <Counter 
 good={this.state.good} 
 neutral={this.state.neutral} 

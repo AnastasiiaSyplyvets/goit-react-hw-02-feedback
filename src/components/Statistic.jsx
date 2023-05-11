@@ -1,66 +1,42 @@
 
 import React, { Component } from "react";
-
+import PropTypes from 'prop-types';
+import css from './Statistic.module.css';
 
 export const Counter =({good, neutral, bad, total, positivePercentage})=> {
   
-
-// handleGoodAmount = (event) =>{
-//     this.setState((prevAmount)=>{
-//         console.log("click")
-// return{
-//    good: prevAmount.good +1
-// }
-//     })
-    
-// }
-
-// handleNeutralAmount =(event)=>{
-//     this.setState((prevAmount)=>{
-// return {
-//     neutral: prevAmount.neutral +1
-// }
-//     })
-// }
-
-// handleBadAmount=()=>{
-//     this.setState((prevAmount)=>{
-//         return{
-//             bad: prevAmount.bad +1
-//         }
-//     })
-// }
-
-// countTotalFeedback =()=>{
-//     let total =  this.state.good + this.state.neutral + this.state.bad;
-//     return total;
-   
-// }
-
-// countPositiveFeedbackPercentage = ()=>{
-//     let posTotal = Math.round((this.state.good * 100) / this.countTotalFeedback());
-
-// if(posTotal <0) {
-//     return 100;
-// }
-
-//     return posTotal;
-
-// }
-
  
- return   (<div>
+ return   (<div className={css.statCover}>
 
 
-    <h2>Statistic</h2>
-<p>Good: <span>{good}</span></p>
-<p>Neutral: <span>{neutral}</span></p>
-<p>Bad: <span>{bad}</span></p>
-<p>Total: <span>{total}</span></p>
-<p>Positive feedback: <span>{positivePercentage}%</span></p>
-</div> )
+    <h2 className={css.statTitle}>Statistic</h2>
+    {/* <ul>
+        <li className={css.statOption}>Good: <span>{good}</span></li>
+        <li className={css.statOption}>Neutral: <span>{neutral}</span></li>
+        <li className={css.statOption}>Bad: <span>{bad}</span></li>
+        <li className={css.statOption}>Total: <span>{total}</span></li>
+        <li className={css.statOption}>Positive feedback: <span>{positivePercentage}%</span></li>
+ </ul> */}
+
+
+<p className={css.statOption}>Good: <span>{good}</span></p>
+<p className={css.statOption}>Neutral: <span>{neutral}</span></p>
+<p className={css.statOption}>Bad: <span>{bad}</span></p>
+<p className={css.statOption}>Total: <span>{total}</span></p>
+<p className={css.statOption}>Positive feedback: <span>{positivePercentage}%</span></p> 
+
+</div> ) 
 
 }
 
 
 export default Counter;
+
+
+Counter.propTypes={
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+    total: PropTypes.number,
+    positivePercentage: PropTypes.number,
+}

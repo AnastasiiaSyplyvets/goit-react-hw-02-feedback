@@ -34,3 +34,7 @@
 
     cursor:pointer;
 }
+
+.listBtn:hover {
+    transform: scale(1.3);
+}
